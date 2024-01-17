@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Users
+{% endblock %}
+
+{% block main %}
+    <form action="/user" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="user" name="user" placeholder="Search for a user" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+        <div class="container">
+        <h1> {{username}}'s Portfolio </h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>CRYPTO</th>
+                    <th>QUANTITY</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                {%for stock in portfolio%}
+                    <td>
+                        {{ stock["stock"] }}
+                    </td>
+                    <td>
+                        {{ stock["quantity"] }}
+                    </td>
+                    {%endfor%}
+                </tr>
+            </tbody>
+    </div>
+{% endblock %}
